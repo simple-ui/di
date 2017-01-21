@@ -1,6 +1,6 @@
 import 'mocha';
 import { assert } from 'chai';
-import { provide, inject, ready } from '../lib/index';
+import { di, provide, inject, ready } from '../lib/index';
 
 @provide()
 class P1 {
@@ -15,7 +15,10 @@ class P2 {
 describe('DI Simple', () => {
   
   it('register a provider', () => {
-    assert(Array.isArray([]), 'empty arrays are arrays');
+    
+    assert(di.hasProvider('P1'), 'P1 should be registered');
+    assert(di.hasProvider('P2'), 'P2 should be registered');
+
   })
 
 });

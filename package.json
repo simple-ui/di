@@ -1,5 +1,5 @@
 {
-  "name": "iocts",
+  "name": "simple-ui_di",
   "version": "1.0.0",
   "description": "A set of Typescript decorators for dependency injection",
   "main": "lib/index.ts",

@@ -3,40 +3,40 @@ import { assert } from 'chai';
 import { provide, inject, ready } from '../lib/index';
 
 @provide()
-class A {
+class W {
   @inject()
-  public b: B;
+  public x: X;
 }
 
 @provide()
-class B {
+class X {
   @inject()
-  public c: C;
+  public y: Y;
 }
 
 @provide()
-class C {
+class Y {
   @inject()
-  public d: D;
+  public z: Z;
 }
 
 @provide()
-class D {
+class Z {
   @inject()
-  public a: A;
+  public w: W;
 }
 
 describe('DI Tree', () => {
   
-  it('register a tree of containers', () => {
+  it('inject a tree of providers', () => {
     
-    const a: A = new A();
+    const w: W = new W();
 
-    assert(a, 'a should exist');
-    assert(a.b, 'b should exist');
-    assert(a.b.c, 'c should exist');
-    assert(a.b.c.d, 'd should exist');
-    assert(a.b.c.d.a, 'a should exist inside of d');
+    assert(w, 'w should exist');
+    assert(w.x, 'x should exist');
+    assert(w.x.y, 'y should exist');
+    assert(w.x.y.z, 'z should exist');
+    assert(w.x.y.z.w, 'w should exist inside of z');
     
   })
 

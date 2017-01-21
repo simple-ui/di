@@ -1,49 +1,33 @@
-// import 'mocha';
-// import { assert } from 'chai';
-// import { provide, inject, ready } from '../lib/index';
+import 'mocha';
+import { assert } from 'chai';
+import { provide, inject, ready } from '../lib/index';
 
-// @provide()
-// class A {
-//   public a: number = 2;
+class NotRegistered {
 
-//   @inject()
-//   public c: C;
-// }
+}
 
-// @provide()
-// class C {
-//   public c: number = 2;
+@provide()
+class IsProvided {
+  @inject()
+  public notRegistered: NotRegistered;
+}
 
-//   @inject()
-//   public a: A;
-// }
+describe('DI Errors', () => {
 
-// @provide()
-// class B {
-//   public h: number = 2;
+  it('handle errors from unregistered providers', () => {
 
-//   @inject()
-//   public a: A;
+    try {
+      const isProvided: IsProvided = new IsProvided();
+    }
+    catch (e) {
+      if (e instanceof ReferenceError) {
+        assert(e.message === `DI: provider NotRegistered has not be registered`, 'should provide a help message if injection fails');
+      }
+      else {
+        assert(false, 'should return a `ReferenceError`');
+      }      
+    }
 
-//   @inject()
-//   public c: C;
+  })
 
-//   @ready()
-//   whatever() {    
-//     const isTrue: boolean = (this.a.constructor as any).name === 'A';
-//   }
-// }
-
-// describe('DI Suite', () => {
-  
-//   it('register a provider', () => {
-    
-//     const b: B = new B();
-
-//     assert(b, 'b should exist');
-//     assert(b.a.c === b.c, 'b should have c and a inside of b should have c, which is the same object');
-//     assert(b.c.a === b.a, 'b should have a and c inside of b should have a, which is the same object');
-    
-//   })
-
-// });
+});
