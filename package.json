@@ -3,20 +3,38 @@
   "version": "1.0.0",
   "description": "A set of Typescript decorators for dependency injection",
   "main": "lib/index.ts",
+  "private": false,
+  "files": [
+    "lib/",
+    "CHANGELOG.MD",
+    "README.MD"
+  ],
   "scripts": {
     "clean": "rm -Rf lib/*.js; rm -Rf lib/*.js.map; rm -Rf test/*.js; rm -Rf test/*.js.map;",
     "build": "tsc -p .",
     "test": "tsc -p . && mocha"
   },
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:simple-ui/di.git"
+  },
+  "keywords": [
+    "dependency",
+    "injection"
+  ],
+  "author": "Michael Jaworski <mjaworski@acm.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/simple-ui/di/issues"
+  },
+  "homepage": "https://github.com/simple-ui/di#readme",
   "dependencies": {
-    "typescript": "^2.1.5"
+    "typescript": "2.1.5"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "mocha": "^3.2.0",
-    "@types/chai": "^3.4.34",
-    "@types/mocha": "^2.2.38"
+    "chai": "3.5.0",
+    "mocha": "3.2.0",
+    "@types/chai": "3.4.34",
+    "@types/mocha": "2.2.38"
   }
 }
