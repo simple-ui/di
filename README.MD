@@ -1,5 +1,10 @@
 # Dependency Injection
 
+[![Coverage Status](https://coveralls.io/repos/github/simple-ui/di/badge.svg?branch=master)](https://coveralls.io/github/simple-ui/di?branch=master)
+[![Build Status](https://travis-ci.org/simple-ui/di.svg?branch=master)](https://travis-ci.org/simple-ui/di)
+[![Dependency Status](https://david-dm.org/simple-ui/di.svg)](https://david-dm.org/simple-ui/di.svg?style=flat-square)
+[![npm version](https://badge.fury.io/js/simple-ui_di.svg)](https://badge.fury.io/js/simple-ui_di)
+
 A dependency injection library using TypeScript decorators.
 
 ## Setup
