@@ -8,9 +8,9 @@ npm-debug.log
 
 dist/
 node_modules/
+test/
+tmp/
 coverage/
 
-test/*.js
 lib/*.js
-test/*.js.map
 lib/*.js.map
