@@ -7,6 +7,20 @@
 
 A dependency injection library using TypeScript decorators.
 
+## Install
+
+Install with npm.
+
+```sh
+npm install --save simple-ui_di
+```
+
+Install with bower.
+
+```sh
+bower install --save simple-ui_di
+```
+
 ## Setup
 
 The library uses Decorators to dress classes. To use this library you have to enable `experimentalDecorators` in your _tsconfig.json_ file.
