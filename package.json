@@ -1,6 +1,6 @@
 {
   "name": "simple-ui_di",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A set of Typescript decorators for dependency injection",
   "main": "lib/index.ts",
   "private": false,
@@ -12,10 +12,18 @@
   ],
   "scripts": {
     "clean": "rm -Rf lib/*.js; rm -Rf lib/*.js.map; rm -Rf test/*.js; rm -Rf test/*.js.map;",
-    "build": "tsc -p .",
-    "test": "tsc -p . && mocha",
+    "lint": "node_modules/.bin/tslint lib",
+    "toc": "node_modules/.bin/doctoc --github --title \"# Changelog\" CHANGELOG.md",
+    "check": "npm run lint -s && node_modules/.bin/dependency-check package.json --entry lib",
+    "test": "node_modules/.bin/tsc -p . && mocha",
+    "prebuild": "npm run check -s && npm run clean -s",
+    "build": "node_modules/.bin/tsc -p .",
+    "postbuild": "npm run test -s",    
     "coverage": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "coveralls": "npm run coverage",
+    "prepublish": "npm run build -s",
+    "deploy": "git pull --rebase origin master && git push origin master",
+    "postpublish": "git push origin master --follow-tags",
     "postcoveralls": "rm -Rf ./coverage"
   },
   "repository": {
@@ -40,8 +48,11 @@
     "@types/mocha": "2.2.38",
     "chai": "3.5.0",
     "coveralls": "2.11.15",
+    "doctoc": "*",
     "istanbul": "0.4.5",
     "mocha": "3.2.0",
-    "mocha-lcov-reporter": "1.2.0"
+    "dependency-check": "*",
+    "mocha-lcov-reporter": "1.2.0",
+    "tslint": "^4.5.1"
   }
 }
