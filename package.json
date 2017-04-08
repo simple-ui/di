@@ -1,6 +1,6 @@
 {
-  "name": "simple-ui_di",
-  "version": "1.0.1",
+  "name": "@simple-ui/di",
+  "version": "1.0.2",
   "description": "A set of Typescript decorators for dependency injection",
   "main": "lib/index.ts",
   "private": false,
